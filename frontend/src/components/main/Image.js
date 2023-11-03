@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import { React,  useEffect, useState } from 'react';
 import {
     MDBContainer,
     MDBRow,
@@ -49,7 +49,7 @@ const Image = () => {
                                     </div>
                                 </div>
                                 <MDBCardImage className='img-fluid rounded'
-                                    src={'http://localhost;5000/photo.image'}
+                                    src={'http://localhost:5000/photo.image'}
                                     position="top"
                                     alt="Laptop" style={{ height: "250px" }}
                                 />
