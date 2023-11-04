@@ -10,6 +10,7 @@ import Image from './components/main/Image';
 
 import Add from './components/main/Add';
 import Navbar from './components/main/Navbar';
+import UserAuth from './auth/UserAuth';
 
 function App() {
   return (<BrowserRouter>
@@ -17,7 +18,7 @@ function App() {
     <Routes >
       <Route path="/" element={<Home />} />
       <Route path="signup" element={<Signup />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={ <UserAuth><Login /></UserAuth>} />
       <Route path="add" element={<Add />} />
       <Route path="image" element={<Image />} />
     </Routes>

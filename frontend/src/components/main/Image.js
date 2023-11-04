@@ -1,5 +1,5 @@
 
-import { React,  useEffect, useState } from 'react';
+import  React,  { useEffect, useState } from 'react';
 import {
     MDBContainer,
     MDBRow,
@@ -16,7 +16,7 @@ const Image = () => {
     // const [masterList, setMasterList] = useState([]);
 
     const fetchEquipmentData = async () => {
-        const res = await fetch('http:localhost:5000/photo/getall');
+        const res = await fetch('http://localhost:5000/photo/getall');
         console.log(res.status);
         
         const data = await res.json();
@@ -33,13 +33,13 @@ const Image = () => {
     return (
         
         <div>
-        <MDBContainer className="my-5">
-            <MDBRow>
+        <MDBContainer className="my-5"  style={{width: '300px'}} >
+            <MDBCol >
                 {
                     photoList.map((photo) => (
-                        <MDBCol md="12" lg="4" className="mb-4 mb-lg-5">
-                            <MDBCard style={{ height: "550px", backgroundColor: "#F4F4F4" }}>
-                                <div className="d-flex justify-content-between p-3">
+                        <MDBRow md="12" lg="2" className="mb-4 mb-lg-5" >
+                            <MDBCard style={{ height: "400px", backgroundColor: "lightskyblue", alignItems:'center' }}>
+                                <div className="d-flex justify-content-center p-10">
                                     {/* <p className="lead mb-0">Today's Combo Offer</p> */}
                                     <div
                                     // className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
@@ -49,11 +49,11 @@ const Image = () => {
                                     </div>
                                 </div>
                                 <MDBCardImage className='img-fluid rounded'
-                                    src={'http://localhost:5000/photo.image'}
+                                    src={'http://localhost:5000/' + photo.image}
                                     position="top"
                                     alt="Laptop" style={{ height: "250px" }}
                                 />
-                                <MDBCardBody style={{ height: "350px " }}>
+                                <MDBCardBody style={{ height: "5px " }}>
 
 
                                     <div className="d-flex justify-content-between " >
@@ -62,12 +62,12 @@ const Image = () => {
                                             height: " 3em",
                                             overflow: "hidden"
                                         }}>{photo.title}</h5>
-                                        <h5 className="text-dark mb-0">₹{photo.price}</h5>
+                                        {/* <h5 className="text-dark mb-0">₹{photo.price}</h5> */}
                                     </div>
                                     <div className="d-flex justify-content-between">
                                         <p className="small">
                                             <a href="#!" className="text-muted">
-                                                {photo.title}
+                                                {photo.description}
                                             </a>
                                         </p>
                                         <p className="small text-danger">
@@ -75,7 +75,7 @@ const Image = () => {
                                         </p>
                                     </div>
 
-                                    <div class="d-flex justify-content-between mb-2">
+                                    {/* <div class="d-flex justify-content-between mb-2">
                                         <p class="text-muted mb-0">
                                             Available: <span class="fw-bold">6</span>
                                         </p>
@@ -86,16 +86,16 @@ const Image = () => {
                                             <MDBIcon fas icon="star" />
                                             <MDBIcon fas icon="star" />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     
                                     
                                 </MDBCardBody>
                             </MDBCard>
-                        </MDBCol>
+                        </MDBRow>
                     ))
                 }
 
-            </MDBRow>
+            </MDBCol>
         </MDBContainer>
 
     </div>

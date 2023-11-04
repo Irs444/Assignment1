@@ -7,7 +7,7 @@ const Navbar = () => {
         <div>
 <nav className="navbar navbar-dark bg-dark">
   <div className="container">
-    <NavLink className="navbar-brand" to = "/main/home">Home</NavLink>
+    <NavLink className="navbar-brand" to = "/">Home</NavLink>
    
     
     {/* <form className="d-flex input-group w-auto">
@@ -25,7 +25,7 @@ const Navbar = () => {
    
   
   <div className='d-flex align-item-center'>
-    <Link to = '/main/add'>
+    <Link to = '/add'>
 <a className='btn btn-primary' role="button">+Add</a>
 </Link>
   </div>

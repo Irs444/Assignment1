@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import Swal from 'sweetalert2'
 import * as Yup from 'yup';
 import './Signup.css'
+import { useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
   name : Yup.string()
@@ -26,6 +27,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
+
+  // const navigate = useNavigate();
+
   const signupForm = useFormik({
  initialValues:{
   name: '',
@@ -55,6 +59,7 @@ const Signup = () => {
       title: 'Nice',
       text: 'you have registerd now'
     })
+    // navigate('/login');
    } else{
     Swal.fire({
      icon: 'erroe',
