@@ -37,7 +37,7 @@ const Login = () => {
                 // setLoggedIn(true);
                 const data = await res.json();
                 sessionStorage.setItem('main', JSON.stringify(data));
-                // navigate('/main/Home');
+                navigate('/add');
 
             }
             else if (res.status === 401) {

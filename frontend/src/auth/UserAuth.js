@@ -7,7 +7,7 @@ const UserAuth = ({children}) => {
 
     const navigate = useNavigate();
   
-    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('main')));
 
     if(currentUser!==null){
         return children;
@@ -17,7 +17,7 @@ const UserAuth = ({children}) => {
             text: 'You are not logged in',
             icon: 'error'
         });
-        navigate('/main/Login');
+        navigate('/Login');
     }
 }
 

@@ -11,15 +11,18 @@ import Image from './components/main/Image';
 import Add from './components/main/Add';
 import Navbar from './components/main/Navbar';
 import UserAuth from './auth/UserAuth';
+import LoginAuth from './auth/LoginAuth';
+
 
 function App() {
   return (<BrowserRouter>
     <Navbar />
+    
     <Routes >
       <Route path="/" element={<Home />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="login" element={ <UserAuth><Login /></UserAuth>} />
-      <Route path="add" element={<Add />} />
+      <Route path="signup" element={<LoginAuth> <Signup /></LoginAuth>} />
+      <Route path="login" element={ <LoginAuth><Login /></LoginAuth>} />
+      <Route path="add" element={ <UserAuth><Add /> </UserAuth>} />
       <Route path="image" element={<Image />} />
     </Routes>
   </BrowserRouter>)

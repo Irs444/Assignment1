@@ -28,7 +28,7 @@ const SignupSchema = Yup.object().shape({
 
 const Signup = () => {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const signupForm = useFormik({
  initialValues:{
@@ -59,7 +59,7 @@ const Signup = () => {
       title: 'Nice',
       text: 'you have registerd now'
     })
-    // navigate('/login');
+    navigate('/login');
    } else{
     Swal.fire({
      icon: 'erroe',

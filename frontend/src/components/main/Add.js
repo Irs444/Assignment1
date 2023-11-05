@@ -22,7 +22,7 @@ import  {useFormik}  from 'formik';
 import {toast} from 'react-hot-toast';
 import Swal from 'sweetalert2';
 
-const App = () => {
+const Add = () => {
     const[selectImage, setSelectImage] = useState(null);
     const[currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('main')));
     const[selImage, setselImage] = useState('');
@@ -90,8 +90,8 @@ const App = () => {
         
     });
   return(
-   <MDBContainer className='my-5' >
-    <MDBCard >
+   <MDBContainer className='my-5 ' >
+    <MDBCard style={{width: 800}}>
         <MDBRow className='g-0'>
      <MDBCol md='6' >
         <div style={{margin:70}}>
@@ -106,8 +106,8 @@ const App = () => {
 
             <br/>
             <br/>
-            <label htmlFor= 'uplode-image' className='btn btn-primary' style={{marginInline:20}}>Uploade Image</label>
-            <input hiddenid = "uplode-image" type='file' onChange={uploadeImage}/>
+            
+          
         </div>
 
      </MDBCol>
@@ -127,8 +127,10 @@ const App = () => {
                 label= 'category' value={addPhoto.values.category} onChange={addPhoto.handleChange} />
 
                 <button className='btn btn-primary' type='submit' style={{margin:10}}>Save</button>
-                <button className='btn btn-primary' type='submit' style={{margin:10}}>Save & Add Another</button>
-                <button className='btn btn-primary' type='submit' style={{margin:10}}>Cancel</button>
+                <label htmlFor= 'uplode-image' className='btn btn-primary' style={{margin:10}}  >Uploade</label>
+            <input hidden id = "uplode-image"   type='file' onChange={uploadeImage}></input>
+                {/* <button className='btn btn-primary' type='submit' style={{margin:10}}>Save & Add Another</button>
+                <button className='btn btn-primary' type='submit' style={{margin:10}}>Cancel</button> */}
             </form>
         </MDBCardBody>
 
@@ -140,4 +142,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Add
