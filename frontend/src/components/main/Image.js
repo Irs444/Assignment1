@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import './Image.css'
 import {
     MDBContainer,
     MDBRow,
@@ -16,7 +17,7 @@ const Image = () => {
     // const [masterList, setMasterList] = useState([]);
 
     const fetchEquipmentData = async () => {
-        const res = await fetch('http://localhost:5000/photo/getall');
+        const res = await fetch(API_URL+'/photo/getall');
         console.log(res.status);
 
         const data = await res.json();
@@ -32,58 +33,69 @@ const Image = () => {
 
     return (
 
-        <div>
-            <MDBContainer className="my-5" style={{ width: '300px' }} >
-                <MDBCol >
+        <div style={{ backgroundColor: 'lightblue' }}>
+
+            <MDBContainer className="d-flex justify-content-center" >
+                <MDBCol className='col-md-8 col-lg-6 ' >
                     {
                         photoList.map((photo) => (
-                            <MDBRow md="12" lg="2" className="mb-4 mb-lg-5" >
-                               
-                                  
-                                    <MDBCardImage 
+                            <MDBRow md="12" lg="2" className="mb-2  " >
+                                <MDBCard className=' ' >
+                                    <div className="d-flex justify-content-start "  >
+
+                                    <i class="fa-brands fa-instagram fa-2x text-warning "></i>
+                                        <p>
+                                      
+                                            <a href='#!' className='text-muted ms-5'>
+                                                {photo.user.name}
+                                            </a>
+                                        </p>
+
+                                    </div>
+                                    <MDBCardImage className='my-4 ' 
                                         src={'http://localhost:5000/' + photo.image}
-                                        position="top"
-                                         style={{ height: "250px"}}
+                                        position=""
+                                        style={{ objectFit: 'contain'}}
                                     />
-                                    <MDBCardBody  className='mt-2 ms-3'>
-                                   
-                                            <>
-                                                <i className="fa-regular fa-heart " />
-                                                <i className="fa-regular fa-comment ms-3" />
-                                                <i className="fa-regular fa-paper-plane ms-3" />
-                                                <i className="fa-regular fa-bookmark ms-3 " />
-                                            </>
+                                    <MDBCardBody className='p-1' >
 
-                                        
+                                        <div  className='icon' >
+                                          <a>  <i className="fa-regular fa-heart  " /></a>
+                                          <a>  <i className="fa-regular fa-comment    " /></a>
+                                          <a>  <i className="fa-regular fa-paper-plane  " /></a>
+                                            {/* <i className="fa-regular fa-bookmark ms-auto   " /> */}
+                                        </div>
 
 
-                                        {/* <div className="d-flex justify-content-between " style={{backgroundColor:'yellow'}} >
 
 
-                                            <h5 className="mb-0" style={{
-                                                lineHeight: "1em",
-                                                height: " 3em",
-                                                overflow: "hidden"
-                                            }}>{photo.title}</h5>
-                                           
+                                        {/* <div className="d-flex justify-content-between mt-2 " style={{ backgroundColor: 'yellow' }} >
+
+
+                                            <p>
+                                                <a href='#!' className='text-muted'>
+                                                    {photo.title}
+                                                </a>
+                                            </p>
+
                                         </div> */}
 
-                                        <div className="d-flex justify-content-between mt-2">
+                                        <div className="d-flex justify-content-between mt-4" >
                                             <p >
-                                                <a href="#!" className="text-muted">
+                                                <a href="#!" className=" text-muted  ">
                                                     {photo.description}
                                                 </a>
                                             </p>
                                             <p className="small text-danger">
-                                              
+
                                             </p>
                                         </div>
 
-                                      
+
 
 
                                     </MDBCardBody>
-                                
+                                </MDBCard>
                             </MDBRow>
                         ))
                     }

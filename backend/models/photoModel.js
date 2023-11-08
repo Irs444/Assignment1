@@ -2,12 +2,12 @@
 const { Schema, model, Types } = require('../connection');
 
 const myschema = new Schema({
-    title : String,
+    name : String,
     description : String,
     price : Number,
     category: String,
     image: String,
-    seller: {type : Types.ObjectId, ref : 'main'},
+    user: {type : Types.ObjectId, ref : 'user'},
     createdAt: Date,
 });
 

@@ -33,7 +33,7 @@ const Add = () => {
         setselImage(file);
         const fd = new FormData();
         fd.append("myfile", file);
-        fetch("http://localhost:5000/util/uploadfile",{
+        fetch(API_URL+"/util/uploadfile",{
             method: "POST",
             body: fd,
         }) .then((res) => {
@@ -48,10 +48,10 @@ const Add = () => {
 
     const addPhoto = useFormik({
         initialValues:{
-            tittle: '',
+            name: '',
             description: '',
             price: '',
-            main: currentUser._id,
+            user: currentUser._id,
             category: '',
             image: '',
             createdAt: new Date()
@@ -60,7 +60,7 @@ const Add = () => {
             values.image = selImage.name;
             console.log(values);
 
-            const res = await fetch('http://localhost:5000/photo/add',{
+            const res = await fetch(API_URL+'/photo/add',{
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers:{
@@ -91,10 +91,10 @@ const Add = () => {
     });
   return(
    <MDBContainer className='my-5 ' >
-    <MDBCard style={{width: 800}}>
-        <MDBRow className='g-0'>
-     <MDBCol md='6' >
-        <div style={{margin:70}}>
+    <MDBCard style={{width:500, justifyContent:'center'}}>
+      
+     
+        <div >
 
             {selectImage && (
             <div style={{margin:70 }}>
@@ -110,21 +110,21 @@ const Add = () => {
           
         </div>
 
-     </MDBCol>
-     <MDBCol md='6'>
+     
+    
         <MDBCardBody className='d-flex flex-column'>
             <form onSubmit={addPhoto.handleSubmit}>
-                <MDBInput wrapperClass='mb-4' id='tittle' type='tittle'
-                label= 'tittle' value={addPhoto.values.tittle} onChange={addPhoto.handleChange} className='form-control form-control-lg'/>
+                <MDBInput wrapperClass='mb-4' id='name' type='name'
+                label= 'Name' value={addPhoto.values.name} onChange={addPhoto.handleChange} className='form-control form-control-lg '/>
 
                 <MDBInput wrapperClass='mb-4' id='description' type='description'
-                label= 'description' value={addPhoto.values.description} onChange={addPhoto.handleChange} />
+                label= 'Description' value={addPhoto.values.description} onChange={addPhoto.handleChange} />
 
-                <MDBInput wrapperClass='mb-4' id='price' type='price'
-                label= 'price' value={addPhoto.values.price} onChange={addPhoto.handleChange} />
+                {/* <MDBInput wrapperClass='mb-4' id='price' type='price'
+                label= 'price' value={addPhoto.values.price} onChange={addPhoto.handleChange} /> */}
 
-                <MDBInput wrapperClass='mb-4' id='category' type='category'
-                label= 'category' value={addPhoto.values.category} onChange={addPhoto.handleChange} />
+                {/* <MDBInput wrapperClass='mb-4' id='category' type='category'
+                label= 'category' value={addPhoto.values.category} onChange={addPhoto.handleChange} /> */}
 
                 <button className='btn btn-primary' type='submit' style={{margin:10}}>Save</button>
                 <label htmlFor= 'uplode-image' className='btn btn-primary' style={{margin:10}}  >Uploade</label>
@@ -134,8 +134,8 @@ const Add = () => {
             </form>
         </MDBCardBody>
 
-     </MDBCol>
-        </MDBRow>
+     
+        
     </MDBCard>
 
    </MDBContainer>

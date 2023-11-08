@@ -3,9 +3,11 @@ import { useFormik } from 'formik'
 import React from 'react'
 import { Link, useNavigate,  } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useUserContext from '../../context/UserContext';
 
 
 const Login = () => {
+    const {setLoggedIn} = useUserContext();
 
    const navigate = useNavigate();
     
@@ -19,7 +21,7 @@ const Login = () => {
             console.log(values);
             setSubmitting(true);
 
-            const res = await fetch('http://localhost:5000/user/authenticate', {
+            const res = await fetch(API_URL+'/user/authenticate', {
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers: {
@@ -29,12 +31,13 @@ const Login = () => {
             });
             console.log(res.status);
             if (res.status === 200) {
+
                 Swal.fire({
                     icon: "succsess",
                     text: "nice",
                     title: "you have succefully login"
                 });
-                // setLoggedIn(true);
+                setLoggedIn(true);
                 const data = await res.json();
                 sessionStorage.setItem('main', JSON.stringify(data));
                 navigate('/add');
@@ -57,11 +60,11 @@ const Login = () => {
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col col-xl-10">
-                            <div className="card" style={{ borderRadius: "1rem" }}>
+                            <div className="card " style={{ borderRadius: "1rem" }}>
                                 <div className="row g-0">
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                            src="https://techcrunch.com/wp-content/uploads/2019/11/Instagram-Hide-Like-Counter-1.png"
                                             alt="login form"
                                             className="img-fluid"
                                             style={{ borderRadius: "1rem 0 0 1rem" }}

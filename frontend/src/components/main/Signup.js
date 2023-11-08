@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import * as Yup from 'yup';
 import './Signup.css'
 import { useNavigate } from 'react-router-dom';
+import app_config from '../../config';
 
 const SignupSchema = Yup.object().shape({
   name : Yup.string()
@@ -20,7 +21,7 @@ const SignupSchema = Yup.object().shape({
   .required('enter the password')
   .matches(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-    "Must contain 8 charater"
+    "Must contain 8 charater, One Upper case, One Lower case, one number and one special case"
   ),
   cpassword: Yup.string()
   .oneOf([Yup.ref('password'),null], 'password must match')
@@ -29,6 +30,8 @@ const SignupSchema = Yup.object().shape({
 const Signup = () => {
 
   const navigate = useNavigate();
+
+  const { API_URL } = app_config;
 
   const signupForm = useFormik({
  initialValues:{
@@ -41,7 +44,7 @@ const Signup = () => {
     setSubmitting(true);
   console.log(values);
 
-   const res = await fetch('http://localhost:5000/user/add',{
+   const res = await fetch(API_URL+'/user/add',{
      method: 'POST',
      body: JSON.stringify(values),
      headers: {
@@ -72,12 +75,12 @@ const Signup = () => {
   }) ;
     return(
         <div>
-  <section className="vh-100 bg-image ">
-  <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div className="container-fluid h-100">
+  <section className="vh-100 bg-image " style={{backgroundColor:'red'}}>
+  <div className="mask d-flex align-items-center h-80 gradient-custom-3" >
+    <div className="container-fluid h-100" >
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div className="card" style={{  backgroundColor: "lightgreen"}}>
+          <div className="card" style={{  backgroundColor: "lightgreen", height:'700px'}}>
             <div className="card-body p-5">
               <h2 className=" text-center mb-5">
                 Create an account
@@ -135,7 +138,7 @@ const Signup = () => {
                   />
                  <span className="text-danger">{signupForm.errors.cpassword}</span>
                 </div>
-                <div className="form-check d-flex justify-content-center mb-5">
+                {/* <div className="form-check d-flex justify-content-center mb-5">
                   <input
                     className="form-check-input me-2"
                     type="checkbox"
@@ -148,11 +151,11 @@ const Signup = () => {
                       <u>Terms of service</u>
                     </a>
                   </label>
-                </div>
-                <div className="d-flex justify-content-center">
+                </div> */}
+                <div className="d-flex justify-content-center ">
                   <button
                     type="submit"
-                    className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    className="btn btn-success btn-block btn-lg gradient-custom-4 text-body mt-4"
                     disabled={signupForm.isSubmitting}
                     
                   >
@@ -161,12 +164,12 @@ const Signup = () => {
                     Register
                   </button>
                 </div>
-                <p className="text-center text-muted mt-5 mb-0">
+                {/* <p className="text-center text-muted mt-5 mb-0">
                   Have already an account?{" "}
                   <a href="#!" className="fw-bold text-body">
                     <u>Login here</u>
                   </a>
-                </p>
+                </p> */}
               </form>
             </div>
           </div>

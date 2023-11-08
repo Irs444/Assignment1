@@ -30,7 +30,7 @@ router.post('/authenticate', (req, res) => {
     });
 
     router.get('/getall', (req, res) => {
-        Model.find({})
+        Model.find({}).populate('user')
         .then((result) => {
            res.json(result); 
         }).catch((err) => {
