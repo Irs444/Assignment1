@@ -55,7 +55,7 @@ const Image = () => {
 
                                     </div>
                                     <MDBCardImage className='my-4 ' 
-                                        src={API_URL + photo.image}
+                                        src={API_URL +'/'+ photo.image}
                                         position=""
                                         style={{ objectFit: 'contain'}}
                                     />

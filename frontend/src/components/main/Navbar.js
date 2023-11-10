@@ -16,7 +16,7 @@ const Navbar = () => {
         <>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          {/* <NavLink className="nav-link" >Social Gallery</NavLink> */}
+          <NavLink className="nav-link" to="/image">Social Gallery</NavLink>
         </li>
         </ul>
           {/* <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* <NavLink className="navbar-brand  mb-2 mb-lg-0" to="/">Home</NavLink> */}
           <NavLink className="navbar-brand mb-2 mb-lg-0" to="/signup">Signup</NavLink>
           <NavLink className="navbar-brand me-auto mb-2 mb-lg-0" to="/login">Login</NavLink>
-          <NavLink className="navbar-brand me-auto mb-2 mb-lg-0" to="/image">Images</NavLink>
+          {/* <NavLink className="navbar-brand  mb-2 mb-lg-0" to="/image">Images</NavLink> */}
           
       </>
     }
