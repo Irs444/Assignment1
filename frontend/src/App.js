@@ -21,11 +21,11 @@ function App() {
     <Navbar />
     
     <Routes >
-      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Home />} />
       <Route path="signup" element={<LoginAuth> <Signup /></LoginAuth>} />
       <Route path="login" element={ <LoginAuth><Login /></LoginAuth>} />
       <Route path="add" element={ <UserAuth><Add /> </UserAuth>} />
-      <Route path="/home" element={<Image />} />
+      <Route path="image" element={<Image />} />
     </Routes>
     </UserProvider>
   </BrowserRouter>)
