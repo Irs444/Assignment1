@@ -8,7 +8,7 @@ const photoRouter = require('./routers/photoRouter')
 const utilRouter = require('./routers/util')
 
 const cors = require('cors');
-app.use(cors({origin: ['http://localhost:3000', 'https://digi-assignment1.onrender.com']}));
+app.use(cors({origin: '*'}));
 
 app.use(express.json());
 app.use('/user', userRouter);
