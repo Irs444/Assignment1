@@ -48,6 +48,7 @@ const Navbar = () => {
         {/* <NavLink className="navbar-brand  mb-2 mb-lg-0" to="/">Home</NavLink> */}
           <NavLink className="navbar-brand mb-2 mb-lg-0" to="/signup">Signup</NavLink>
           <NavLink className="navbar-brand me-auto mb-2 mb-lg-0" to="/login">Login</NavLink>
+          <NavLink className="navbar-brand me-auto mb-2 mb-lg-0" to="/image">Images</NavLink>
           
       </>
     }
