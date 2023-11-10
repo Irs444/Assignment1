@@ -16,7 +16,7 @@ const Navbar = () => {
         <>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink className="nav-link" >Social Gallery</NavLink>
+          {/* <NavLink className="nav-link" >Social Gallery</NavLink> */}
         </li>
         </ul>
           {/* <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
