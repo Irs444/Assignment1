@@ -4,10 +4,12 @@ import React from 'react'
 import { Link, useNavigate,  } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useUserContext from '../../context/UserContext';
+import app_config from '../../config';
 
 
 const Login = () => {
     const {setLoggedIn} = useUserContext();
+    const {API_URL} = app_config;
 
    const navigate = useNavigate();
     

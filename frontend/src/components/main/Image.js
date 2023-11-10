@@ -10,11 +10,13 @@ import {
     MDBCardImage,
     MDBIcon,
 } from "mdb-react-ui-kit";
+import app_config from '../../config';
 
 const Image = () => {
 
     const [photoList, setPhotoList] = useState([]);
     // const [masterList, setMasterList] = useState([]);
+    const {API_URL} = app_config;
 
     const fetchEquipmentData = async () => {
         const res = await fetch(API_URL+'/photo/getall');

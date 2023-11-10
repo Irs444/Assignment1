@@ -21,12 +21,13 @@ import {
 import  {useFormik}  from 'formik';
 import {toast} from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import app_config from '../../config';
 
 const Add = () => {
     const[selectImage, setSelectImage] = useState(null);
     const[currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('main')));
     const[selImage, setselImage] = useState('');
-    
+    const {API_URL} = app_config;
 
     const uploadeImage = async (e) => {
         const file = e.target.files[0];
