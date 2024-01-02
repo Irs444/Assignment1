@@ -31,6 +31,7 @@ const Add = () => {
 
     const uploadeImage = async (e) => {
         const file = e.target.files[0];
+        
         setselImage(file);
         const fd = new FormData();
         fd.append("myfile", file);
@@ -101,9 +102,10 @@ const Add = () => {
             <div style={{margin:70 }}>
                 <img alt='not found' width={"500px"} src={URL.createObjectURL(selectImage)}/> 
                 <br/>
-                <button onClick={() => setSelectImage(null)}>Remove</button>
+                <button className='btn btn-danger' onClick={() => setSelectImage(null)}>Remove</button>
             </div>
             )}
+            
 
             <br/>
             <br/>
